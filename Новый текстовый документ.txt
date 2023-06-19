@@ -1,0 +1,19 @@
+[cloudera@quickstart workspace]$ pig -x local
+
+grunt> cat /home/cloudera/Desktop/workspace/Work.txt
+a	1
+b	5
+c	7
+d	4
+
+
+grunt> records = LOAD'/home/cloudera/Desktop/workspace/Work.txt' as (letter: chararray, count:int);
+grunt> toPrint = LIMIT records 5;
+grunt> DUMP records;
+(a,1)
+(b,5)
+(c,7)
+(d,4)
+
+grunt> DESCRIBE records
+records: {letter: chararray,count: int}
